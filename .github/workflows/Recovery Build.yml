@@ -129,6 +129,7 @@ jobs:
 
     - name: Clone local manifest
       run: |
+        mkdir -p .repo/local_manifests
         git clone ${{ github.event.inputs.LOCAL_MANIFEST_URL }} .repo/local_manifests -b ${{ github.event.inputs.LOCAL_MANIFEST_BRANCH }} 
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 

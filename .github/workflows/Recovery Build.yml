@@ -19,6 +19,14 @@ on:
         description: 'DEVICE_TREE_BRANCH'
         required: true
         default: 'main'
+      LOCAL_MANIFEST_URL:
+        description: 'LOCAL_MANIFEST_URL'
+        required: false
+        default: 'https://github.com/gdlukee/twrp_local_manifest'
+      LOCAL_MANIFEST_BRANCH:
+        description: 'LOCAL_MANIFEST_BRANCH'
+        required: false
+        default: 'main'
       DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
@@ -35,14 +43,6 @@ on:
         description: 'BUILD_TARGET'
         required: true
         default: 'vendorboot'
-      LOCAL_MANIFEST_URL:
-        description: 'LOCAL_MANIFEST_URL'
-        required: false
-        default: 'https://github.com/gdlukee/twrp_local_manifest'
-      LOCAL_MANIFEST_BRANCH:
-        description: 'LOCAL_MANIFEST_BRANCH'
-        required: false
-        default: 'main'
 
 jobs:
   build:
@@ -58,12 +58,12 @@ jobs:
         echo "Manifest Branch: ${{ github.event.inputs.MANIFEST_BRANCH }}"
         echo "Device Tree URL: ${{ github.event.inputs.DEVICE_TREE_URL }}"
         echo "Device Tree Branch: ${{ github.event.inputs.DEVICE_TREE_BRANCH }}"
+        echo "Local Manifest URL: ${{ github.event.inputs.LOCAL_MANIFEST_URL }}"
+        echo "Local Manifest Branch: ${{ github.event.inputs.LOCAL_MANIFEST_BRANCH }}"
         echo "Device Path: ${{ github.event.inputs.DEVICE_PATH }}"
         echo "Device Name: ${{ github.event.inputs.DEVICE_NAME }}"
         echo "Makefile Name: ${{ github.event.inputs.MAKEFILE_NAME }}"
         echo "Build Target: ${{ github.event.inputs.BUILD_TARGET }}.img"
-        echo "Local Manifest URL: ${{ github.event.inputs.LOCAL_MANIFEST_URL }}"
-        echo "Local Manifest Branch: ${{ github.event.inputs.LOCAL_MANIFEST_BRANCH }}"
         echo "::endgroup::"
 
     # You might want to Checkout your repo first, but not mandatory
